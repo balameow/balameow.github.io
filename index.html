@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>共同基金</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Load Require CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font CSS -->
+    <link href="assets/css/boxicon.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Load Tempalte CSS -->
+    <link rel="stylesheet" href="assets/css/templatemo.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <nav id="main_nav" class="navbar navbar-expand-lg navbar-light bg-white shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="navbar-brand h1">
+                <a href="index.html" style="text-decoration: none;">
+                    <span class="text-dark h1">共同基金</span>
+                </a>
+                <img src="assets/img/bala.jpg" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
+                <img src="assets/img/meow.jpg" class="rounded-circle mr-1" alt="Chris Wood" width="40" height="40">
+            </div>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler-success" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbar-toggler-success">
+                <div class="align-self-center flex-fill d-lg-flex justify-content-lg-between mb-2">
+                    <div class="flex-fill mx-xl-5 mb-2">
+                        <ul class="nav navbar-nav d-flex justify-content-between mx-xl-5 text-center text-dark">
+                            <li class="nav-item">
+                                <a class="nav-link btn-outline-primary rounded-pill px-3" href="index.html">共同基金</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn-outline-primary rounded-pill px-3" href="index.html">備忘錄</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Close Header -->
+
+    <!-- Balance -->
+    <div class="container py-4 text-center">
+        <table class="table">
+            <colgroup>
+                <col style="background-color:lightgreen"></col>
+                <col style="background-color:lightcoral"></col>
+                <col style="background-color:aliceblue;"></col>
+              </colgroup>
+            <thead>
+            <tr>
+                <th scope="col" data-bs-toggle="modal" data-bs-target="#revenueTable">收入</th>
+                <th scope="col" data-bs-toggle="modal" data-bs-target="#costTable">支出</th>
+                <th scope="col">餘額</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td  data-bs-toggle="modal" data-bs-target="#revenueTable"><div id="revenueNum">0</div></td>
+                <td  data-bs-toggle="modal" data-bs-target="#costTable"><div id="costNum">0</div></td>
+                <td><strong><div id="balanceNum">0</div></strong></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container py-2 text-center">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn-lg btn-dark" data-bs-toggle="modal" data-bs-target="#manipulateFund">
+            捐款/使用
+        </button>
+    </div>
+
+    <!-- Start Comment-->
+    <div class="container py-3 text-center">
+        <div id="allLedger"></div>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="manipulateFund" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="manipulateFundLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="manipulateFundLabel">捐款/使用</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <select id="tag" class="form-select form-select-sm mb-3" aria-label=".form-select-sm example">
+                        <option value="use">我要使用</option>
+                        <option value="donate">我要捐款</option>
+                    </select>
+                    <div class="form-check mb-3" style="float:left;">
+                        <label style="margin: 0px 15px;"><input class="form-check-input" type="checkbox" value="" id="Wade"> Wade</label>
+                        <label style="margin: 0px 15px;"><input class="form-check-input" type="checkbox" value="" id="Donna"> Donna</label>
+                        <label style="margin: 0px 15px;"><input class="form-check-input" type="checkbox" value="" id="Sammy"> Sammy</label>
+                        <label style="margin: 0px 15px;"><input class="form-check-input" type="checkbox" value="" id="Ken"> Ken</label>
+                        <label style="margin: 0px 15px;"><input class="form-check-input" type="checkbox" value="" id="Sandy"> Sandy</label>
+                    </div>
+                    <div class="mb-3" style="float:left;">
+                        <input type="date" id="date" name="date">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <input type="number" class="form-control" id="money" step="100" min="0" max="10000000" placeholder="金額">
+                    </div>
+                    <form id="myForm">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="note" placeholder="備註" maxlength="20">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">取消</button>
+                    <button onclick="manipulateFund()" type="button" class="btn btn-dark" data-bs-dismiss="modal">確定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="revenueTable" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="revenueTableLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="revenueTableLabel">收入</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="RevenueCanvasContainer">
+                    <canvas id="RevenueCanvas"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="costTable" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="costTableLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="costTableLabel">支出</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="CostCanvasContainer">
+                    <canvas id="CostCanvas"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-4 text-center">
+        <button onclick="topFunction()" id="myBtn" class="btn btn-dark">Top</button>
+    </div>
+    <!-- Close Comment -->
+
+          
+    <!-- Bootstrap -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <!-- FireBase -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-database.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
+
+    <script src="assets/js/scroll.js"></script>
+    <script src="assets/js/db.js"></script>
+    <script>
+        $(document).ready(function () {
+            get_start.init();
+        });
+    </script>
+
+</body>
+
+</html>
