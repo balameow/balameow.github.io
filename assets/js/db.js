@@ -221,7 +221,7 @@ function updateEvent(key)
     if(document.getElementById(`update_Sammy-${key}`).checked) membersGroup += "Sammy,";
     if(document.getElementById(`update_Ken-${key}`).checked) membersGroup += "Ken,";
     if(document.getElementById(`update_Sandy-${key}`).checked) membersGroup += "Sandy,";
-    if (tag == "update_use-${key}") money *= -1;
+    if (tag == `update_use-${key}`) money *= -1;
     if (date == "") date = _DateTimezone(8);
 
     membersGroup = membersGroup.slice(0, -1);
@@ -234,7 +234,6 @@ function updateEvent(key)
         db.ref(`/ledger/${key}/member`).set(membersGroup);
     }
     _getData();
-    $('#update_myForm-${key}')[0].reset();
 }
 
 // delete event
