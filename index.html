@@ -37,7 +37,7 @@
                                 <a class="nav-link btn-outline-primary rounded-pill px-3" href="index.html">共同基金</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link btn-outline-primary rounded-pill px-3" href="index.html">備忘錄</a>
+                                <a class="nav-link btn-outline-primary rounded-pill px-3" href="backup.html">備忘錄</a>
                             </li>
                         </ul>
                     </div>
@@ -93,24 +93,24 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <select id="tag" class="form-select form-select-sm mb-3" aria-label=".form-select-sm example">
-                        <option value="use">我要使用</option>
-                        <option value="donate">我要捐款</option>
-                    </select>
-                    <div class="form-check mb-3" style="float:left;">
-                        <label style="margin: 0px 15px;"><input class="form-check-input" type="checkbox" value="" id="Wade"> Wade</label>
-                        <label style="margin: 0px 15px;"><input class="form-check-input" type="checkbox" value="" id="Donna"> Donna</label>
-                        <label style="margin: 0px 15px;"><input class="form-check-input" type="checkbox" value="" id="Sammy"> Sammy</label>
-                        <label style="margin: 0px 15px;"><input class="form-check-input" type="checkbox" value="" id="Ken"> Ken</label>
-                        <label style="margin: 0px 15px;"><input class="form-check-input" type="checkbox" value="" id="Sandy"> Sandy</label>
-                    </div>
-                    <div class="mb-3" style="float:left;">
-                        <input type="date" id="date" name="date">
-                    </div>
-                    <div class="input-group input-group-sm mb-3">
-                        <input type="number" class="form-control" id="money" step="100" min="0" max="10000000" placeholder="金額">
-                    </div>
                     <form id="myForm">
+                        <select id="tag" class="form-select form-select-sm mb-3" aria-label=".form-select-sm example">
+                            <option value="use">我要使用</option>
+                            <option value="donate">我要捐款</option>
+                        </select>
+                        <div class="form-check mb-3" style="float:left;">
+                            <label style="margin: 0px 15px;"><input class="form-check-input" type="checkbox" value="" id="Wade"> Wade</label>
+                            <label style="margin: 0px 15px;"><input class="form-check-input" type="checkbox" value="" id="Donna"> Donna</label>
+                            <label style="margin: 0px 15px;"><input class="form-check-input" type="checkbox" value="" id="Sammy"> Sammy</label>
+                            <label style="margin: 0px 15px;"><input class="form-check-input" type="checkbox" value="" id="Ken"> Ken</label>
+                            <label style="margin: 0px 15px;"><input class="form-check-input" type="checkbox" value="" id="Sandy"> Sandy</label>
+                        </div>
+                        <div class="mb-3" style="float:left;">
+                            <input type="date" id="date" name="date">
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <input type="number" class="form-control" id="money" step="100" min="0" max="10000000" placeholder="金額">
+                        </div>
                         <div class="mb-3">
                             <input type="text" class="form-control" id="note" placeholder="備註" maxlength="20">
                         </div>
