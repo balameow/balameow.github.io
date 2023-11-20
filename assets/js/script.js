@@ -121,8 +121,12 @@ function handleKeyPress(event) {
 
 function insertToDo()
 {
-    var date = _DateTimezone(8);
     var event = $(`#todo`).val();
+    var date = $(`#date`).val();
+    if (date == "")
+    {
+        date = _DateTimezone(8);
+    }
     if (event != "")
     {
         db.ref(`/todo`).push({
